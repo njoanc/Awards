@@ -9,6 +9,11 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 import datetime as dt
+class Project(models.Model):
+    title = models.TextField(max_length=200, null=True, blank=True, default="title")
+    project_image = models.ImageField(upload_to='picture/', null=True, blank=True)
+    description = models.TextField()
+    project_url=models.CharField(max_length=200)
 
 
 class Profile(models.Model):
@@ -16,10 +21,10 @@ class Profile(models.Model):
         db_table = 'profile'
 
     bio = models.TextField(max_length=200, null=True, blank=True, default="bio")
-    profilepic = models.ImageField(upload_to='picture/', null=True, blank=True)
+    profile_pic = models.ImageField(upload_to='picture/', null=True, blank=True)
     user=models.OneToOneField(User, on_delete=models.CASCADE, blank=True, related_name="profile")
-    followers = models.ManyToManyField(User, related_name="followers", blank=True)
-    following = models.ManyToManyField(User, related_name="following", blank=True)
+    project=models.ForeignKey(Project, null=True)
+    contact=models.IntegerField(default=0)
 
     def save_profile(self):
         self.save()
@@ -27,26 +32,6 @@ class Profile(models.Model):
     def delete_profile(self):
         self.delete()
 
-    def follow_user(self, follower):
-        return self.following.add(follower)
-
-    def unfollow_user(self, to_unfollow):
-        return self.following.remove(to_unfollow)
-
-    def is_following(self, checkuser):
-        return checkuser in self.following.all()
-
-    def get_number_of_followers(self):
-        if self.followers.count():
-            return self.followers.count()
-        else:
-            return 0
-
-    def get_number_of_following(self):
-        if self.following.count():
-            return self.following.count()
-        else:
-            return 0
 
     @classmethod
     def search_users(cls, search_term):
@@ -144,6 +129,20 @@ class Followers(models.Model):
 
 
 class Review(models.Model):
+    RATING_CHOICES = (
+        (1, '1'),
+        (2, '2'),
+        (3, '3'),
+        (4, '4'),
+        (5, '5'),
+        (6, '6'),
+        (7, '7'),
+        (8, '8'),
+        (9, '9'),
+        (10, '10'),
+
+    )
+    project= models.ForeignKey(Project, null=True, blank=True, on_delete=models.CASCADE, related_name="project")
     user = models.ForeignKey(User, null=True, blank=True, on_delete=models.CASCADE, related_name='user')
     image = models.ForeignKey(Image, on_delete=models.CASCADE, related_name="review")
     comment = models.TextField()
