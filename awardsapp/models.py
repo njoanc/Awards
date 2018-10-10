@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
+import numpy as np
 
 from django.db import models
 
@@ -14,6 +15,18 @@ class Project(models.Model):
     project_image = models.ImageField(upload_to='picture/', null=True, blank=True)
     description = models.TextField()
     project_url=models.URLField(max_length=250)
+
+    def average_design_rating_of_project(self):
+        design_ratings = list(map(lambda x: x.design_rating, self.review_set.all()))
+        return np.mean(design_ratings)
+
+    def average_usability_rating_of_project(self):
+        usability_ratings = list(map(lambda x: x.usability_rating, self.review_set.all()))
+        return np.mean(usability_ratings)
+
+    def average_content_rating_of_project(self):
+        content_ratings = list(map(lambda x: x.content_rating, self.review_set.all()))
+        return np.mean(content_ratings)
 
 
 class Profile(models.Model):
@@ -146,6 +159,9 @@ class Review(models.Model):
     user = models.ForeignKey(User, null=True, blank=True, on_delete=models.CASCADE, related_name='user')
     image = models.ForeignKey(Image, on_delete=models.CASCADE, related_name="review")
     comment = models.TextField()
+    design_rating = models.IntegerField(choices=RATING_CHOICES, null=True, blank=True)
+    usability_rating = models.IntegerField(choices=RATING_CHOICES, null=True, blank=True)
+    content_rating = models.IntegerField(choices=RATING_CHOICES, null=True, blank=True)
 
     def save_comment(self):
         self.save()
