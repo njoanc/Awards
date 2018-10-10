@@ -24,7 +24,7 @@
           <entry key="html" value="23" />
           <entry key="js" value="1" />
           <entry key="md" value="2" />
-          <entry key="py" value="32" />
+          <entry key="py" value="35" />
           <entry key="txt" value="3" />
         </counts>
       </usages-collector>
@@ -35,7 +35,7 @@
           <entry key="JavaScript" value="1" />
           <entry key="Markdown" value="2" />
           <entry key="PLAIN_TEXT" value="6" />
-          <entry key="Python" value="32" />
+          <entry key="Python" value="35" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -44,7 +44,7 @@
           <entry key="env" value="2" />
           <entry key="html" value="192" />
           <entry key="md" value="362" />
-          <entry key="py" value="306" />
+          <entry key="py" value="453" />
           <entry key="txt" value="1" />
         </counts>
       </usages-collector>
@@ -54,7 +54,7 @@
           <entry key="HTML" value="192" />
           <entry key="Markdown" value="362" />
           <entry key="PLAIN_TEXT" value="3" />
-          <entry key="Python" value="306" />
+          <entry key="Python" value="453" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages" />
@@ -62,38 +62,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/awardsapp/templates/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" column="6" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#h1#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/awardsapp/templates/navbar.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="14" column="8" selection-start-line="14" selection-start-column="8" selection-end-line="14" selection-end-column="8" />
-              <folding>
-                <element signature="n#style#0;n#img#0;n#a#0;n#div#0;n#div#0;n#nav#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#li#0;n#div#1;n#div#0;n#nav#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#li#1;n#div#1;n#div#0;n#nav#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#li#2;n#div#1;n#div#0;n#nav#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#li#3;n#div#1;n#div#0;n#nav#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#li#4;n#div#1;n#div#0;n#nav#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#li#5;n#div#1;n#div#0;n#nav#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#li#6;n#div#1;n#div#0;n#nav#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/awardsapp/templates/search.html">
           <provider selected="true" editor-type-id="text-editor">
@@ -140,8 +108,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/awardsapp/serializers.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="38" selection-start-column="38" selection-end-column="38" />
+            <state relative-caret-position="105">
+              <caret line="7" column="71" selection-start-line="7" selection-start-column="71" selection-end-line="7" selection-end-column="71" />
+              <folding>
+                <element signature="e#0#38#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -161,33 +132,57 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/awardsapp/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="367">
-              <caret line="206" column="26" selection-start-line="206" selection-start-column="26" selection-end-line="206" selection-end-column="26" />
+            <state relative-caret-position="296">
+              <caret line="266" lean-forward="true" selection-start-line="266" selection-end-line="266" />
               <folding>
                 <element signature="e#24#63#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/awardsapp/models.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="144" column="89" selection-start-line="144" selection-start-column="89" selection-end-line="144" selection-end-column="89" />
-              <folding>
-                <element signature="e#24#63#0" expanded="true" />
-                <marker date="1539197601129" expanded="true" signature="273:530" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/awardsapp/templates/base.html">
+        <entry file="file://$PROJECT_DIR$/awardsapp/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="1" selection-start-line="1" selection-end-line="1" />
+            <state relative-caret-position="240">
+              <caret line="16" column="65" selection-start-line="16" selection-start-column="65" selection-end-line="16" selection-end-column="65" />
+              <folding>
+                <element signature="e#0#32#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/awardsproject/urls.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="18" column="60" selection-start-line="18" selection-start-column="60" selection-end-line="18" selection-end-column="60" />
+              <folding>
+                <element signature="e#650#691#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/awardsapp/models.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="225">
+              <caret line="15" column="15" lean-forward="true" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="15" />
+              <folding>
+                <element signature="e#24#63#0" expanded="true" />
+                <marker date="1539197671702" expanded="true" signature="273:529" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/awardsapp/permissions.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="7" column="15" lean-forward="true" selection-start-line="7" selection-start-column="15" selection-end-line="7" selection-end-column="15" />
             </state>
           </provider>
         </entry>
@@ -218,26 +213,27 @@
         <option value="$PROJECT_DIR$/awardsapp/templates/navbar.html" />
         <option value="$PROJECT_DIR$/awardsapp/templates/registration/login.html" />
         <option value="$PROJECT_DIR$/awardsapp/templates/registration/base.html" />
-        <option value="$PROJECT_DIR$/awardsapp/urls.py" />
         <option value="$PROJECT_DIR$/awardsapp/tests.py" />
         <option value="$PROJECT_DIR$/awardsapp/forms.py" />
         <option value="$PROJECT_DIR$/awardsapp/templates/search.html" />
-        <option value="$PROJECT_DIR$/awardsproject/urls.py" />
         <option value="$PROJECT_DIR$/awardsapp/templates/index.html" />
         <option value="$PROJECT_DIR$/awardsapp/admin.py" />
         <option value="$PROJECT_DIR$/static/css/styles.css" />
         <option value="$PROJECT_DIR$/awardsapp/templates/registration/registration_form.html" />
         <option value="$PROJECT_DIR$/awardsapp/templates/base.html" />
-        <option value="$PROJECT_DIR$/awardsapp/serializers.py" />
         <option value="$PROJECT_DIR$/README.md" />
-        <option value="$PROJECT_DIR$/awardsapp/views.py" />
         <option value="$PROJECT_DIR$/awardsapp/models.py" />
+        <option value="$PROJECT_DIR$/awardsapp/permissions.py" />
+        <option value="$PROJECT_DIR$/awardsapp/serializers.py" />
+        <option value="$PROJECT_DIR$/awardsapp/views.py" />
+        <option value="$PROJECT_DIR$/awardsapp/urls.py" />
+        <option value="$PROJECT_DIR$/awardsproject/urls.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="224" />
-    <option name="y" value="43" />
+    <option name="x" value="272" />
+    <option name="y" value="23" />
     <option name="width" value="1280" />
     <option name="height" value="688" />
   </component>
@@ -258,6 +254,11 @@
               <item name="awards" type="b2602c69:ProjectViewProjectNode" />
               <item name="awards" type="462c0819:PsiDirectoryNode" />
               <item name="awardsapp" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="awards" type="b2602c69:ProjectViewProjectNode" />
+              <item name="awards" type="462c0819:PsiDirectoryNode" />
+              <item name="awardsproject" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -303,7 +304,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="224" y="43" width="1280" height="688" extended-state="0" />
+    <frame x="272" y="23" width="1280" height="688" extended-state="0" />
     <layout>
       <window_info id="Favorites" side_tool="true" />
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19777602" />
@@ -411,30 +412,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/awardsproject/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="28" selection-start-line="21" selection-start-column="28" selection-end-line="21" selection-end-column="28" />
-          <folding>
-            <element signature="e#650#691#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/requirements.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="147">
           <caret line="45" selection-start-line="45" selection-end-line="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/awardsapp/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="80" selection-start-line="19" selection-start-column="80" selection-end-line="19" selection-end-column="80" />
-          <folding>
-            <element signature="e#0#32#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -542,13 +523,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/awardsapp/serializers.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="38" selection-start-column="38" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
@@ -559,23 +533,60 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/awardsapp/permissions.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="15" lean-forward="true" selection-start-line="7" selection-start-column="15" selection-end-line="7" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/awardsapp/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="15" lean-forward="true" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="15" />
+          <folding>
+            <element signature="e#24#63#0" expanded="true" />
+            <marker date="1539197671702" expanded="true" signature="273:529" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/awardsapp/serializers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="71" selection-start-line="7" selection-start-column="71" selection-end-line="7" selection-end-column="71" />
+          <folding>
+            <element signature="e#0#38#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/awardsapp/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="367">
-          <caret line="206" column="26" selection-start-line="206" selection-start-column="26" selection-end-line="206" selection-end-column="26" />
+        <state relative-caret-position="296">
+          <caret line="266" lean-forward="true" selection-start-line="266" selection-end-line="266" />
           <folding>
             <element signature="e#24#63#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/awardsapp/models.py">
+    <entry file="file://$PROJECT_DIR$/awardsapp/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="144" column="89" selection-start-line="144" selection-start-column="89" selection-end-line="144" selection-end-column="89" />
+        <state relative-caret-position="240">
+          <caret line="16" column="65" selection-start-line="16" selection-start-column="65" selection-end-line="16" selection-end-column="65" />
           <folding>
-            <element signature="e#24#63#0" expanded="true" />
-            <marker date="1539197601129" expanded="true" signature="273:530" ph="..." />
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/awardsproject/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="18" column="60" selection-start-line="18" selection-start-column="60" selection-end-line="18" selection-end-column="60" />
+          <folding>
+            <element signature="e#650#691#0" expanded="true" />
           </folding>
         </state>
       </provider>
