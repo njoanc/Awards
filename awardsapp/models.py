@@ -13,7 +13,7 @@ class Project(models.Model):
     title = models.TextField(max_length=200, null=True, blank=True, default="title")
     project_image = models.ImageField(upload_to='picture/', null=True, blank=True)
     description = models.TextField()
-    project_url=models.CharField(max_length=200)
+    project_url=models.URLField(max_length=250)
 
 
 class Profile(models.Model):
