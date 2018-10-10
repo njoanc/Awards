@@ -2,19 +2,50 @@
 from __future__ import unicode_literals
 import numpy as np
 
-from django.db import models
-
 # Create your models here.
 from django.db import models
 from django.contrib.auth.models import User
 
 # Create your models here.
 import datetime as dt
+
+class tags(models.Model):
+    name = models.CharField(max_length=30)
+
+    def __str__(self):
+        return self.name
+
+    def save_tags(self):
+        self.save()
+
+    def delete_tags(self):
+        self.delete()
+
+
+class Location(models.Model):
+    name = models.CharField(max_length=30)
+
+
+    def save_location(self):
+        self.save()
+
+    def delete_location(self):
+        self.delete()
+
+    def __str__(self):
+        return self.name
+
+
+
+
 class Project(models.Model):
     title = models.TextField(max_length=200, null=True, blank=True, default="title")
     project_image = models.ImageField(upload_to='picture/', null=True, blank=True)
     description = models.TextField()
     project_url=models.URLField(max_length=250)
+    tags = models.ManyToManyField(tags, blank=True)
+    location = models.ForeignKey(Location, null=True)
+
 
     def average_design_rating_of_project(self):
         design_ratings = list(map(lambda x: x.design_rating, self.review_set.all()))
@@ -27,6 +58,47 @@ class Project(models.Model):
     def average_content_rating_of_project(self):
         content_ratings = list(map(lambda x: x.content_rating, self.review_set.all()))
         return np.mean(content_ratings)
+
+    def save_project(self):
+        self.save()
+
+    @classmethod
+    def delete_project_by_id(cls, id):
+        projects = cls.objects.filter(pk=id)
+        projects.delete()
+
+    @classmethod
+    def get_project_by_id(cls, id):
+        projects = cls.objects.get(pk=id)
+        return projects
+
+    @classmethod
+    def filter_by_tag(cls, tags):
+        projects = cls.objects.filter(tags=tags)
+        return projects
+
+    @classmethod
+    def filter_by_location(cls, location):
+        projects = cls.objects.filter(location=location)
+        return projects
+
+    @classmethod
+    def search_project(cls, search_term):
+        projects = cls.objects.filter(title__icontains=search_term)
+        return projects
+
+    @classmethod
+    def update_project(cls, id):
+        projects=cls.objects.filter(id=id).update(id=id)
+        return projects
+
+    @classmethod
+    def update_description(cls, id):
+        projects = cls.objects.filter(id=id).update(id=id)
+        return projects
+
+    def __str__(self):
+        return self.title
 
 
 class Profile(models.Model):
@@ -55,31 +127,6 @@ class Profile(models.Model):
         return self.user.username
 
 
-class Location(models.Model):
-    name = models.CharField(max_length=30)
-
-
-    def save_location(self):
-        self.save()
-
-    def delete_location(self):
-        self.delete()
-
-    def __str__(self):
-        return self.name
-
-
-class tags(models.Model):
-    name = models.CharField(max_length=30)
-
-    def __str__(self):
-        return self.name
-
-    def save_tags(self):
-        self.save()
-
-    def delete_tags(self):
-        self.delete()
 
 
 class Image(models.Model):

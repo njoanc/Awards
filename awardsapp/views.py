@@ -24,24 +24,24 @@ from .permissions import IsAdminOrReadOnly
 tags = tags.objects.all()
 
 @login_required(login_url='/accounts/login/')
-def home_images(request):
-    # Display all images here:
+def home_projects(request):
+    # Display all projects here:
 
     # images = Image.objects.all()
 
     locations = Location.objects.all()
 
     if request.GET.get('location'):
-        pictures = Image.filter_by_location(request.GET.get('location'))
+        projects = Project.filter_by_location(request.GET.get('location'))
 
     elif request.GET.get('tags'):
-        pictures = Image.filter_by_tag(request.GET.get('tags'))
+        projects = Project.filter_by_tag(request.GET.get('tags'))
 
     elif request.GET.get('search_term'):
-        pictures = Image.search_image(request.GET.get('search_term'))
+        projects = Project.search_project(request.GET.get('search_term'))
 
     else:
-        pictures = Image.objects.all()
+        projects = Project.objects.all()
 
     form = NewsLetterForm
 
@@ -60,12 +60,12 @@ def home_images(request):
 
     return render(request, 'index.html', {'locations':locations,
                                           'tags': tags,
-                                          'pictures':pictures, 'letterForm':form})
+                                          'projects':projects, 'letterForm':form})
 
-def image(request, id):
+def project(request, id):
 
     try:
-        image = Image.objects.get(pk = id)
+        project = Project.objects.get(pk = id)
 
     except DoesNotExist:
         raise Http404()
@@ -86,7 +86,7 @@ def image(request, id):
             comment = form.cleaned_data['comment']
 
             review = Review()
-            review.image = image
+            review.project = project
             review.user = current_user
             review.comment = comment
             review.save()
@@ -97,20 +97,20 @@ def image(request, id):
 
         # return HttpResponseRedirect(reverse('image', args=(image.id,)))
 
-    return render(request, 'image.html', {"image": image,
+    return render(request, 'image.html', {"project": project,
                                           'form':form,
                                           'comments':comments,
                                           })
 
 @login_required(login_url='/accounts/login/')
-def new_image(request):
+def new_project(request):
     current_user = request.user
     if request.method == 'POST':
         form = NewImageForm(request.POST, request.FILES)
         if form.is_valid():
-            image = form.save(commit=False)
-            image.user = current_user
-            image.save()
+            project = form.save(commit=False)
+            project.user = current_user
+            project.save()
         return redirect('homePage')
 
     else:
