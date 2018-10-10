@@ -13,7 +13,8 @@ urlpatterns=[
     url(r'^profile/(?P<username>[0-9]+)$', views.individual_profile_page, name='individual_profile_page'),
     # url(r'^comment/(?P<image_id>\d+)', views.add_review, name='add_review'),
     url(r'^myprofile/$', views.myprofile, name='myprofile'),
-url(r'^api/project/$', views.ProjectList.as_view()),
+    url(r'^ajax/newsletter/$', views.newsletter, name = 'newsletter'),
+    url(r'^api/project/$', views.ProjectList.as_view()),
     url(r'api/project/project-id/(?P<pk>[0-9]+)/$', views.ProjectDescription.as_view())
 
 ]
