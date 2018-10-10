@@ -226,6 +226,9 @@ def newsletter(request):
     return JsonResponse(data)
 
 # POSTMAN functions
+# PUT CODE WORKS
+# GET CODE WORKS
+# POST CODE ALSO WORKS... YAY!
 
 class ProjectList(APIView):
     def get(self, request, format = None):
