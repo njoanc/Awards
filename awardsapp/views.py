@@ -228,6 +228,7 @@ def newsletter(request):
 # POSTMAN functions
 # PUT CODE WORKS
 # GET CODE WORKS
+# DELETE WORKS
 # POST CODE ALSO WORKS... YAY!
 
 class ProjectList(APIView):
