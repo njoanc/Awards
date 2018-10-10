@@ -2,13 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1f3f954d-0b2c-4c75-88af-bb51bb6b5644" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/static/css/styles.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/js/scripts.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/photos/rawpixel-594846-unsplash.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/awardsapp/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/awardsapp/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/awardsapp/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/awardsapp/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/awardsapp/templates/registration/registration_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/awardsapp/templates/registration/registration_form.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -233,7 +227,7 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="284" />
+    <option name="x" value="730" />
     <option name="y" value="23" />
     <option name="width" value="1280" />
     <option name="height" value="688" />
@@ -327,11 +321,11 @@
     <frame x="284" y="23" width="1280" height="688" extended-state="0" />
     <layout>
       <window_info id="Favorites" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.37251788" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19777602" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Version Control" />
       <window_info anchor="bottom" id="Python Console" weight="0.32885906" />
-      <window_info active="true" anchor="bottom" id="Terminal" visible="true" weight="0.74496645" />
+      <window_info active="true" anchor="bottom" id="Terminal" visible="true" weight="0.4681208" />
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
