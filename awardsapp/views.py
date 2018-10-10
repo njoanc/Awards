@@ -225,6 +225,8 @@ def newsletter(request):
     data= {'success': 'You have been successfully added to the newsletter mailing list'}
     return JsonResponse(data)
 
+# POSTMAN functions
+
 class ProjectList(APIView):
     def get(self, request, format = None):
         all_projects = Project.objects.all()
