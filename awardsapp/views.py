@@ -20,7 +20,6 @@ from .serializers import ProjectSerializer, ProfileSerializer
 from rest_framework import status
 from .permissions import IsAdminOrReadOnly
 
-
 @login_required(login_url='/accounts/login/')
 def home_projects (request):
     # Display all projects here:
@@ -47,46 +46,45 @@ def home_projects (request):
 
     return render(request, 'index.html', {'projects':projects, 'letterForm':form})
 
-def image (request, id):
-
-    try:
-        image = Image.objects.get(pk = id)
-
-    except DoesNotExist:
-        raise Http404()
-
-    current_user = request.user
-    comments = Review.get_comment(Review, id)
+# def image (request, id):
+#
+#     try:
+#         image = Image.objects.get(pk = id)
+#
+#     except DoesNotExist:
+#         raise Http404()
+#
+#     current_user = request.user
+#     comments = Review.get_comment(Review, id)
 
     #
     # p = Image.objects.get(image_id=id)
     # onelike = Like.objects.get_or_create(user=request.user, image_id=id)
     # likes = p.like_set.all().count()
 
-
-
-    if request.method == 'POST':
-        form = ReviewForm(request.POST)
-        if form.is_valid():
-            comment = form.cleaned_data['comment']
-
-            review = Review()
-            review.image = image
-            review.user = current_user
-            review.comment = comment
-            review.save()
-
-    else:
-        form = ReviewForm()
-
-
-        # return HttpResponseRedirect(reverse('image', args=(image.id,)))
-
-    return render(request, 'image.html', {"image": image,
-                                          'form':form,
-                                          'comments':comments,
-                                          })
-
+    #
+    #
+    # if request.method == 'POST':
+    #     form = ReviewForm(request.POST)
+    #     if form.is_valid():
+    #         comment = form.cleaned_data['comment']
+    #
+    #         review = Review()
+    #         review.image = image
+    #         review.user = current_user
+    #         review.comment = comment
+    #         review.save()
+    #
+    # else:
+    #     form = ReviewForm()
+    #
+    #
+    #     # return HttpResponseRedirect(reverse('image', args=(image.id,)))
+    #
+    # return render(request, 'image.html', {"image": image,
+    #                                       'form':form,
+    #                                       'comments':comments,
+    #                                       })
 
 def project (request, id):
 
@@ -104,7 +102,7 @@ def project (request, id):
         if form.is_valid():
             comment = form.cleaned_data['comment']
             review = Review()
-            review.image = image
+            review.project = project
             review.user = current_user
             review.comment = comment
             review.save()
@@ -236,7 +234,6 @@ def search_image(request):
         else:
             message = "You haven't searched for any image"
             return render(request, 'search.html', {"message": message})
-
 
 @login_required(login_url='/accounts/login/')
 def individual_profile_page(request, username):
