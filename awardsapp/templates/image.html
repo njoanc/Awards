@@ -19,8 +19,6 @@
     <button class="btn btn-lg btn-danger">Like This Project</button>
 
 
-
-
     <!--*****************-->
     <!--TESTING LIKE BUTTON-->
 
@@ -50,16 +48,25 @@
 
 
      <div class="card-body text-primary">
+         {% if latest_review_list %}
+
+    {% for review in latest_review_list %}
+    <div>
+        <h4><a href="{% url 'review_detail' review.id %}">
+        {{ review.project.title }}
+        </a></h4>
+        <h6> Design Rating is {{ review.design_rating }} of 5 by {{ review.user }}</h6>
+        <h6> Usability Rating is {{ review.usability_rating }} of 5 by {{ review.user }}</h6>
+        <h6> Content Rating is {{ review.content_rating }} of 5 by {{ review.user }}</h6>
+        <p>{{ review.comment }}</p>
+    </div>
+    {% endfor %}
+</div>
+{% else %}
+<p>No reviews are available.</p>
+{% endif %}
 
 
-     <p style="font-family: 'Oswald', sans-serif;">{{image.comments}}</p>
-
-
-       {% for comment in comments %}
-
-       <p style="font-family: 'Oswald', sans-serif;"> {{ comment }}</p>
-
-       {% endfor%}
 
      </div>
    </div>

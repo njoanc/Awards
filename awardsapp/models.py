@@ -70,7 +70,7 @@ class Project(models.Model):
         return projects
 
     @classmethod
-    def search_project(cls, search_term):
+    def search_projects(cls, search_term):
         projects = cls.objects.filter(title__icontains=search_term)
         return projects
 
@@ -198,7 +198,7 @@ class Review(models.Model):
     )
     project= models.ForeignKey(Project, null=True, blank=True, on_delete=models.CASCADE, related_name="project")
     user = models.ForeignKey(User, null=True, blank=True, on_delete=models.CASCADE, related_name='user')
-    image = models.ForeignKey(Image, on_delete=models.CASCADE, related_name="review")
+    image = models.ForeignKey(Image, on_delete=models.CASCADE, related_name="review", null=True, blank=True)
     comment = models.TextField()
     design_rating = models.IntegerField(choices=RATING_CHOICES, null=True, blank=True)
     usability_rating = models.IntegerField(choices=RATING_CHOICES, null=True, blank=True)

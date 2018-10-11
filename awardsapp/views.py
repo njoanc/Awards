@@ -46,46 +46,6 @@ def home_projects (request):
 
     return render(request, 'index.html', {'projects':projects, 'letterForm':form})
 
-# def image (request, id):
-#
-#     try:
-#         image = Image.objects.get(pk = id)
-#
-#     except DoesNotExist:
-#         raise Http404()
-#
-#     current_user = request.user
-#     comments = Review.get_comment(Review, id)
-
-    #
-    # p = Image.objects.get(image_id=id)
-    # onelike = Like.objects.get_or_create(user=request.user, image_id=id)
-    # likes = p.like_set.all().count()
-
-    #
-    #
-    # if request.method == 'POST':
-    #     form = ReviewForm(request.POST)
-    #     if form.is_valid():
-    #         comment = form.cleaned_data['comment']
-    #
-    #         review = Review()
-    #         review.image = image
-    #         review.user = current_user
-    #         review.comment = comment
-    #         review.save()
-    #
-    # else:
-    #     form = ReviewForm()
-    #
-    #
-    #     # return HttpResponseRedirect(reverse('image', args=(image.id,)))
-    #
-    # return render(request, 'image.html', {"image": image,
-    #                                       'form':form,
-    #                                       'comments':comments,
-    #                                       })
-
 def project (request, id):
 
     try:
@@ -182,19 +142,19 @@ def individual_profile_page(request, username=None):
 
     return render (request, 'registration/user_image_list.html', {'images':images, 'username': username})
 
-def search_users(request):
-
-    # search for a user by their username
-    if 'user' in request.GET and request.GET["user"]:
-        search_term = request.GET.get("user")
-        searched_users = Profile.search_users(search_term)
-        message = f"{search_term}"
-
-        return render(request, 'search.html', {"message": message, "profiles": searched_users})
-
-    else:
-        message = "You haven't searched for any person"
-        return render(request, 'search.html', {"message": message})
+# def search_users(request):
+#
+#     # search for a user by their username
+#     if 'user' in request.GET and request.GET["user"]:
+#         search_term = request.GET.get("user")
+#         searched_users = Profile.search_users(search_term)
+#         message = f"{search_term}"
+#
+#         return render(request, 'search.html', {"message": message, "profiles": searched_users})
+#
+#     else:
+#         message = "You haven't searched for any person"
+#         return render(request, 'search.html', {"message": message})
 
 def search_projects(request):
 
@@ -234,6 +194,8 @@ def search_image(request):
         else:
             message = "You haven't searched for any image"
             return render(request, 'search.html', {"message": message})
+
+
 
 @login_required(login_url='/accounts/login/')
 def individual_profile_page(request, username):
