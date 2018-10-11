@@ -9,6 +9,10 @@
       <a class="navbar-brand" id="victor" href="{% url 'homePage' %}">AWARDS
       </a>
     </div>
+    <div>
+            <a href="{% url 'review_list' %}">Review List</a>
+      <a href="{% url 'project_list' %}">Project List</a>
+        </div>
     <div class="col-sm-6 col-md-6">
       {% if user.is_authenticated %}
 

@@ -213,6 +213,53 @@ def individual_profile_page(request, username):
                                                                   'username': username})
 
 
+def review_list(request):
+    latest_review_list = Review.objects.all()
+    context = {'latest_review_list':latest_review_list}
+    return render(request, 'review_list.html', context)
+
+
+def review_detail(request, review_id):
+    review = get_object_or_404(Review, pk=review_id)
+    return render(request, 'review_detail.html', {'review': review})
+
+
+def project_list(request):
+    project_list = Project.objects.order_by('-title')
+    context = {'project_list':project_list}
+    return render(request, 'project_list.html', context)
+
+
+def project_detail(request, project_id):
+    project = get_object_or_404(Project, pk=project_id)
+    return render(request, 'project_detail.html', {'project': project})
+
+
+def add_review(request, project_id):
+    project = get_object_or_404(Project, pk=project_id)
+    form = ReviewForm(request.POST)
+    if form.is_valid():
+        design_rating = form.cleaned_data['design_rating']
+        content_rating = form.cleaned_data['content_rating']
+        usability_rating = form.cleaned_data['usability_rating']
+        comment = form.cleaned_data['comment']
+        user = form.cleaned_data['user']
+        review = Review()
+        review.project = project
+        review.user = user
+        review.design_rating = design_rating
+        review.content_rating = content_rating
+        review.usability_rating = usability_rating
+        review.comment = comment
+        review.save()
+        # Always return an HttpResponseRedirect after successfully dealing
+        # with POST data. This prevents data from being posted twice if a
+        # user hits the Back button.
+        return HttpResponseRedirect(reverse('project_detail', args=(project.id,)))
+
+    return render(request, 'project_detail.html', {'project': project, 'form': form})
+
+
 # generic views
 
 def newsletter(request):
