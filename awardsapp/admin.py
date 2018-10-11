@@ -7,7 +7,7 @@ from django.contrib import admin
 from django.contrib import admin
 
 # Register your models here.
-from .models import Location,tags, Image, Project, Profile
+from .models import Location,tags, Image, Project, Profile, Review
 
 
 class ImageAdmin(admin.ModelAdmin):
@@ -19,8 +19,15 @@ class ProjectAdmin(admin.ModelAdmin):
 class ProfileAdmin(admin.ModelAdmin):
     list_display = ('user',)
 
+class ReviewAdmin(admin.ModelAdmin):
+    model = Review
+    list_display = ('project', 'usability_rating', 'content_rating', 'design_rating', 'user', 'comment', 'image',)
+    list_filter = ['user',]
+    search_fields = ['comment',]
+
 admin.site.register(Location)
 admin.site.register(tags)
 admin.site.register(Image, ImageAdmin)
-admin.site.register(Project, ProjectAdmin)
 admin.site.register(Profile, ProfileAdmin)
+admin.site.register(Project, ProjectAdmin)
+admin.site.register(Review, ReviewAdmin)
