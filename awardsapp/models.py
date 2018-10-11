@@ -121,8 +121,6 @@ class Profile(models.Model):
         return self.user.username
 
 
-
-
 class Image(models.Model):
     image=models.ImageField(upload_to='picture/', )
     name = models.CharField(max_length=40)

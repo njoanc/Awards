@@ -60,11 +60,17 @@ def project (request, id):
     if request.method == 'POST':
         form = ReviewForm(request.POST)
         if form.is_valid():
+            design_rating = form.cleaned_data['design_rating']
+            content_rating = form.cleaned_data['content_rating']
+            usability_rating = form.cleaned_data['usability_rating']
             comment = form.cleaned_data['comment']
             review = Review()
             review.project = project
             review.user = current_user
             review.comment = comment
+            review.design_rating = design_rating
+            review.content_rating = content_rating
+            review.usability_rating = usability_rating
             review.save()
 
     else:
@@ -76,6 +82,30 @@ def project (request, id):
                                           'form':form,
                                           'comments':comments,
                                           })
+
+# @login_required(login_url='/accounts/login/')
+# def add_review(request, project_id):
+    # project = get_object_or_404(Project, pk=project_id)
+    # form = ReviewForm(request.POST)
+    # if form.is_valid():
+    #     design_rating = form.cleaned_data['design_rating']
+    #     content_rating = form.cleaned_data['content_rating']
+    #     usability_rating = form.cleaned_data['usability_rating']
+    #     comment = form.cleaned_data['comment']
+    #     user = form.cleaned_data['user']
+    #     user = request.user.username
+    #     review = Review()
+    #     review.project = project
+    #     review.user = user
+    #     review.design_rating = design_rating
+    #     review.content_rating = content_rating
+    #     review.usability_rating = usability_rating
+    #     review.comment = comment
+    #     review.save() # Always return an HttpResponseRedirect after successfully dealing
+        # with POST data. This prevents data from being posted twice if a
+        # user hits the Back button.
+        # return HttpResponseRedirect(reverse('project_detail', args=(project.id,)))
+    # return render(request, 'project_detail.html',
 
 @login_required(login_url='/accounts/login/')
 def new_image(request):
@@ -170,16 +200,6 @@ def search_projects(request):
         message = "You haven't searched for any person"
         return render(request, 'search.html', {"message": message})
 
-@login_required(login_url='/accounts/login/')
-def myprofile(request, username = None):
-
-    if not username:
-        username = request.user.username
-    # images by user id
-    images = Image.objects.filter(user_id=username)
-
-    return render(request, 'myprofile.html', locals())
-
 # Search for an image
 def search_image(request):
 
@@ -247,32 +267,6 @@ def project_detail(request, project_id):
 #     context = {'latest_review_list':latest_review_list, 'username':username}
 #     return render(request, 'user_review_list.html', context)
 
-
-@login_required()
-def add_review(request, project_id):
-    project = get_object_or_404(Project, pk=project_id)
-    form = ReviewForm(request.POST)
-    if form.is_valid():
-        design_rating = form.cleaned_data['design_rating']
-        content_rating = form.cleaned_data['content_rating']
-        usability_rating = form.cleaned_data['usability_rating']
-        comment = form.cleaned_data['comment']
-        user = form.cleaned_data['user']
-        user = request.user.username
-        review = Review()
-        review.project = project
-        review.user = user
-        review.design_rating = design_rating
-        review.content_rating = content_rating
-        review.usability_rating = usability_rating
-        review.comment = comment
-        review.save()
-        # Always return an HttpResponseRedirect after successfully dealing
-        # with POST data. This prevents data from being posted twice if a
-        # user hits the Back button.
-        return HttpResponseRedirect(reverse('project_detail', args=(project.id,)))
-
-    return render(request, 'project_detail.html', {'project': project, 'form': form})
 
 
 # generic views
