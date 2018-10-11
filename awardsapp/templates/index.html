@@ -16,10 +16,12 @@
 
     {% for project in projects %}
     <div class="card border-secondary"><a href="{% url 'project' project.id %}">
-        <img src="{{image.image.url}}" data-target="#imageModal{{image.id}}" data-toggle="modal" alt="" class="img-fluid" id="eachimage"
+      <p style="font-family: 'Oswald', sans-serif;">Title: {{ project.title}}</p>
+        <img src="{{project.project_image.url}}" data-target="#imageModal{{project.id}}" data-toggle="modal" alt="" class="img-fluid" id="eachimage"
           size="100px200"></a>
       <p style="font-family: 'Oswald', sans-serif;"> Caption : {{ project.description}}</p>
-      <p style="font-family: 'Oswald', sans-serif;">Posted by : {{ project.user}}</p>
+       <p style="font-family: 'Oswald', sans-serif;"> Caption : {{ project.project_url}}</p>
+
 
     </div>
     {% endfor %}

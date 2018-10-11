@@ -20,31 +20,18 @@ from .serializers import ProjectSerializer, ProfileSerializer
 from rest_framework import status
 from .permissions import IsAdminOrReadOnly
 
-# Views
-tags = tags.objects.all()
 
 @login_required(login_url='/accounts/login/')
-def home_images (request):
+def home_projects (request):
     # Display all projects here:
 
-    # images = Image.objects.all()
-
-    locations = Location.objects.all()
-
-    if request.GET.get('location'):
-        pictures = Image.filter_by_location(request.GET.get('location'))
-
-    elif request.GET.get('tags'):
-        pictures = Image.filter_by_tag(request.GET.get('tags'))
-
-    elif request.GET.get('search_term'):
-        pictures = Image.search_project(request.GET.get('search_term'))
+    if request.GET.get('search_term'):
+        projects = Project.search_project(request.GET.get('search_term'))
 
     else:
-        pictures = Image.objects.all()
+        projects = Project.objects.all()
 
     form = NewsLetterForm
-
 
     if request.method == 'POST':
         form = NewsLetterForm(request.POST or None)
@@ -56,11 +43,9 @@ def home_images (request):
             recipient.save()
             send_welcome_email(name, email)
 
-            HttpResponseRedirect('home_images')
+            HttpResponseRedirect('home_projects')
 
-    return render(request, 'index.html', {'locations':locations,
-                                          'tags': tags,
-                                          'pictures':pictures, 'letterForm':form})
+    return render(request, 'index.html', {'projects':projects, 'letterForm':form})
 
 def image (request, id):
 
@@ -98,6 +83,38 @@ def image (request, id):
         # return HttpResponseRedirect(reverse('image', args=(image.id,)))
 
     return render(request, 'image.html', {"image": image,
+                                          'form':form,
+                                          'comments':comments,
+                                          })
+
+
+def project (request, id):
+
+    try:
+        project = Project.objects.get(pk = id)
+
+    except DoesNotExist:
+        raise Http404()
+
+    current_user = request.user
+    comments = Review.get_comment(Review, id)
+
+    if request.method == 'POST':
+        form = ReviewForm(request.POST)
+        if form.is_valid():
+            comment = form.cleaned_data['comment']
+            review = Review()
+            review.image = image
+            review.user = current_user
+            review.comment = comment
+            review.save()
+
+    else:
+        form = ReviewForm()
+
+        # return HttpResponseRedirect(reverse('image', args=(image.id,)))
+
+    return render(request, 'image.html', {"project": project,
                                           'form':form,
                                           'comments':comments,
                                           })
@@ -181,6 +198,19 @@ def search_users(request):
         message = "You haven't searched for any person"
         return render(request, 'search.html', {"message": message})
 
+def search_projects(request):
+
+    # search for a user by their username
+    if 'project' in request.GET and request.GET["project"]:
+        search_term = request.GET.get("project")
+        searched_projects = Project.search_projects(search_term)
+        message = f"{search_term}"
+
+        return render(request, 'search.html', {"message": message, "projects": searched_projects})
+
+    else:
+        message = "You haven't searched for any person"
+        return render(request, 'search.html', {"message": message})
 
 @login_required(login_url='/accounts/login/')
 def myprofile(request, username = None):
