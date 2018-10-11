@@ -1,4 +1,4 @@
-from .models import Image, Review, Profile
+from .models import Image, Review, Profile, Project
 from django import forms
 from django.forms import ModelForm, Textarea, IntegerField
 
@@ -6,7 +6,13 @@ from django.forms import ModelForm, Textarea, IntegerField
 class NewImageForm(forms.ModelForm):
     class Meta:
         model = Image
-        exclude = ['user', 'likes']
+        exclude = ['user',]
+
+
+class NewProjectForm(forms.ModelForm):
+    class Meta:
+        model = Project
+        exclude = ['user',]
 
 
 class ReviewForm(forms.ModelForm):
@@ -19,7 +25,7 @@ class ReviewForm(forms.ModelForm):
 class UpdatebioForm(forms.ModelForm):
     class Meta:
         model = Profile
-        exclude = ['user', 'followers', 'following']
+        exclude = ['user',]
 
 
 class NewsLetterForm(forms.Form):

@@ -10,7 +10,7 @@ from django.http  import HttpResponse, Http404, HttpResponseRedirect, JsonRespon
 from django.contrib.auth.decorators import login_required
 from django.core.urlresolvers import reverse
 from django.contrib.auth.models import User
-from .forms import NewImageForm, UpdatebioForm, ReviewForm
+from .forms import NewImageForm, UpdatebioForm, ReviewForm, NewProjectForm
 from .email import send_welcome_email
 from .forms import NewsLetterForm
 from rest_framework import generics
@@ -117,6 +117,22 @@ def new_image(request):
         form = NewImageForm()
     return render(request, 'registration/new_image.html', {"form": form})
 
+
+@login_required(login_url='/accounts/login/')
+def new_project(request):
+    current_user = request.user
+    if request.method == 'POST':
+        form = NewProjectForm(request.POST, request.FILES)
+        if form.is_valid():
+            project = form.save(commit=False)
+            project.user = current_user
+            project.save()
+        return redirect('homePage')
+
+    else:
+        form = NewProjectForm()
+    return render(request, 'registration/new_project.html', {"form": form})
+
 # Viewing a single picture
 
 def user_list(request):
@@ -128,8 +144,10 @@ def user_list(request):
 @login_required(login_url='/accounts/login/')
 def edit_profile(request):
     current_user = request.user
+
     if request.method == 'POST':
-        form = UpdatebioForm(request.POST, request.FILES)
+        form = UpdatebioForm(request.POST, request.FILES, instance=current_user.profile)
+        print(form.is_valid())
         if form.is_valid():
             image = form.save(commit=False)
             image.user = current_user

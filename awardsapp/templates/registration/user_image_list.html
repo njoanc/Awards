@@ -5,8 +5,9 @@
 
 <div class="jumbotron text-center" style="background-color:white;">
     <h1 style="font-family: 'Oswald', sans-serif;"> Your Profile Page </h1>
-     <img src="{{profile.profilepic.url}}" class="img-thumbnail" id="eachimage1" style="height:200px;width:150px;"></a>
-    <p style="font-family: 'Oswald', sans-serif;">{{profile.bio}}</p>
+     <img src="{{user.profile.profile_pic.url}}" class="img-thumbnail" id="eachimage1" style="height:200px;width:150px;"></a>
+    <p style="font-family: 'Oswald', sans-serif;">{{user.profile.bio}}</p>
+    <p style="font-family: 'Oswald', sans-serif;">{{user.profile.contact}}</p>
     <button class="btn btn-lg btn-success" style="font-family: 'Oswald', sans-serif;"><a href=" {%url 'edit_profile'%}">Edit Profile</a></button>
     </div>
 
@@ -19,7 +20,6 @@
           size="100px200"></a>
  <p style="font-family: 'Oswald', sans-serif;"> Caption : {{ image.description}}</p>
       <p style="font-family: 'Oswald', sans-serif;">Posted by : {{ image.user}}</p>
-
     </div>
     {% endfor %}
   </div>
@@ -40,12 +40,9 @@
           <li>HASHTAGS</li>
           <li>LANGUAGE</li>
           <br>
-
           <li style="font-size:10px;"> <strong>© 2018 MELISSA MALALA</strong></li>
         </ul>
-
       </div>
-
     </div>
   </div>
 

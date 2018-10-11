@@ -138,6 +138,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+AUTH_PROFILE_MODULE='awardsapp.Profile'
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/

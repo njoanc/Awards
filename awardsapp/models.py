@@ -1,8 +1,8 @@
-# -*- coding: utf-8 -*-
+
 from __future__ import unicode_literals
 import numpy as np
+from django.db.models.signals import post_save
 
-# Create your models here.
 from django.db import models
 from django.contrib.auth.models import User
 
@@ -41,8 +41,7 @@ class Project(models.Model):
     project_image = models.ImageField(upload_to='picture/', null=True, blank=True)
     description = models.TextField()
     project_url=models.URLField(max_length=250)
-    tags = models.ManyToManyField(tags, blank=True)
-    location = models.ForeignKey(Location, null=True)
+
 
 
     def average_design_rating_of_project(self):
@@ -71,16 +70,6 @@ class Project(models.Model):
         return projects
 
     @classmethod
-    def filter_by_tag(cls, tags):
-        projects = cls.objects.filter(tags=tags)
-        return projects
-
-    @classmethod
-    def filter_by_location(cls, location):
-        projects = cls.objects.filter(location=location)
-        return projects
-
-    @classmethod
     def search_project(cls, search_term):
         projects = cls.objects.filter(title__icontains=search_term)
         return projects
@@ -105,9 +94,16 @@ class Profile(models.Model):
 
     bio = models.TextField(max_length=200, null=True, blank=True, default="bio")
     profile_pic = models.ImageField(upload_to='picture/', null=True, blank=True)
-    user=models.OneToOneField(User, on_delete=models.CASCADE, blank=True, related_name="profile")
+    user=models.OneToOneField(User, on_delete=models.CASCADE, null=True, related_name="profile")
     project=models.ForeignKey(Project, null=True)
     contact=models.IntegerField(default=0)
+
+    def create_user_profile(sender, instance, created, **kwargs):
+        if created:
+            Profile.objects.create(user=instance)
+
+    post_save.connect(create_user_profile, sender=User)
+
 
     def save_profile(self):
         self.save()
