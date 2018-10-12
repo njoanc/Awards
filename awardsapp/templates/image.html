@@ -52,9 +52,9 @@
           <h1 style="color:black;">AVERAGE OF REVIEWS</h1>
 <h2>{{ project.title }}</h2>
 
-<h5>{{ project.review_set.count }} reviews ({{ project.average_design | floatformat }} average rating of design)</h5>
-<h5>{{ project.review_set.count }} reviews ({{ project.average_content | floatformat }} average rating of content)</h5>
-<h5>{{ project.review_set.count }} reviews ({{ project.average_usability | floatformat }} average rating of usability)</h5>
+<h5>{{ project.reviews.count }} reviews ({{ project.average_design | floatformat }} average rating of design)</h5>
+<h5>{{ project.reviews.count }} reviews ({{ project.average_content | floatformat }} average rating of content)</h5>
+<h5>{{ project.reviews.count }} reviews ({{ project.average_usability | floatformat }} average rating of usability)</h5>
 
 
 

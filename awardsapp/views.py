@@ -233,6 +233,7 @@ def project_list(request):
     context = {'project_list':project_list}
     return render(request, 'project_list.html', context)
 
+
 # AJAX functionality
 
 def newsletter(request):

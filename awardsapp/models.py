@@ -2,6 +2,7 @@
 from __future__ import unicode_literals
 import numpy as np
 from django.db.models.signals import post_save
+from django.db.models import Avg, Max, Min
 
 from django.db import models
 from django.contrib.auth.models import User
@@ -43,15 +44,15 @@ class Project(models.Model):
     project_url=models.URLField(max_length=250)
 
     def average_design(self):
-        design_ratings = list(map(lambda x: x.design_rating, self.review_set.all()))
+        design_ratings = list(map(lambda x: x.design_rating, self.reviews.all()))
         return np.mean(design_ratings)
 
     def average_usability(self):
-        usability_ratings = list(map(lambda x: x.usability_rating, self.review_set.all()))
+        usability_ratings = list(map(lambda x: x.usability_rating, self.reviews.all()))
         return np.mean(usability_ratings)
 
     def average_content(self):
-        content_ratings = list(map(lambda x: x.content_rating, self.review_set.all()))
+        content_ratings = list(map(lambda x: x.content_rating, self.reviews.all()))
         return np.mean(content_ratings)
 
     def save_project(self):
@@ -74,7 +75,7 @@ class Project(models.Model):
 
     @classmethod
     def update_project(cls, id):
-        projects=cls.objects.filter(id=id).update(id=id)
+        projects = cls.objects.filter(id=id).update(id=id)
         return projects
 
     @classmethod
@@ -84,6 +85,20 @@ class Project(models.Model):
 
     def __str__(self):
         return self.title
+
+    # ************** VICTOR PLAYING AROUND HERE********************************
+
+    # def average_des(self, id):
+    #     print('asdfasdf' + id)
+    #     pr = Review.objects.filter(pk=id)
+    #     print(pr)
+    #     url = [r.usability_rating for r in pr]
+    #     print(url)
+    #     print(np.mean(url))
+    #     return  np.mean(url)
+
+    # **********************************************
+
 
 
 class Profile(models.Model):
@@ -185,13 +200,13 @@ class Review(models.Model):
         (10, '10'),
 
     )
-    project= models.ForeignKey(Project, null=True, blank=True, on_delete=models.CASCADE, related_name="project")
-    user = models.ForeignKey(User, null=True, blank=True, on_delete=models.CASCADE, related_name='user')
-    image = models.ForeignKey(Image, on_delete=models.CASCADE, related_name="review", null=True, blank=True)
+    project = models.ForeignKey(Project, null=True, blank=True, on_delete=models.CASCADE, related_name="reviews")
+    user = models.ForeignKey(User, null=True, blank=True, on_delete=models.CASCADE, related_name='reviews')
+    image = models.ForeignKey(Image, on_delete=models.CASCADE, related_name="reviews", null=True, blank=True)
     comment = models.TextField()
-    design_rating = models.IntegerField(choices=RATING_CHOICES, null=True, blank=True)
-    usability_rating = models.IntegerField(choices=RATING_CHOICES, null=True, blank=True)
-    content_rating = models.IntegerField(choices=RATING_CHOICES, null=True, blank=True)
+    design_rating = models.IntegerField(choices=RATING_CHOICES, default=0)
+    usability_rating = models.IntegerField(choices=RATING_CHOICES, default=0)
+    content_rating = models.IntegerField(choices=RATING_CHOICES, default=0)
 
     def save_comment(self):
         self.save()

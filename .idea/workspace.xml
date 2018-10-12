@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1f3f954d-0b2c-4c75-88af-bb51bb6b5644" name="Default Changelist" comment="" />
+    <list default="true" id="1f3f954d-0b2c-4c75-88af-bb51bb6b5644" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/awardsapp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/awardsapp/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/awardsapp/templates/image.html" beforeDir="false" afterPath="$PROJECT_DIR$/awardsapp/templates/image.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/awardsapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/awardsapp/views.py" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,19 +49,19 @@
           <entry key="Procfile" value="13" />
           <entry key="css" value="30" />
           <entry key="env" value="16" />
-          <entry key="html" value="1217" />
+          <entry key="html" value="1273" />
           <entry key="md" value="424" />
-          <entry key="py" value="2309" />
+          <entry key="py" value="2714" />
           <entry key="txt" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="30" />
-          <entry key="HTML" value="1217" />
+          <entry key="HTML" value="1273" />
           <entry key="Markdown" value="424" />
           <entry key="PLAIN_TEXT" value="30" />
-          <entry key="Python" value="2309" />
+          <entry key="Python" value="2714" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages" />
@@ -76,8 +81,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/awardsapp/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-397">
-              <caret line="175" column="71" selection-start-line="175" selection-start-column="71" selection-end-line="175" selection-end-column="71" />
+            <state relative-caret-position="-621">
+              <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
               <folding>
                 <element signature="e#24#63#0" expanded="true" />
               </folding>
@@ -107,8 +112,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/awardsapp/templates/image.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="140">
-              <caret line="53" selection-start-line="53" selection-end-line="53" />
+            <state relative-caret-position="257">
+              <caret line="56" column="22" selection-start-line="56" selection-start-column="22" selection-end-line="56" selection-end-column="22" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#h1#0;n#div#0;n#div#0;n#!!top" expanded="true" />
@@ -127,10 +132,12 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/awardsapp/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="49" column="25" lean-forward="true" selection-start-line="49" selection-start-column="25" selection-end-line="49" selection-end-column="25" />
+            <state relative-caret-position="186">
+              <caret line="210" column="27" lean-forward="true" selection-start-line="210" selection-start-column="27" selection-end-line="210" selection-end-column="27" />
               <folding>
-                <marker date="1539338702734" expanded="true" signature="705:2212" ph="..." />
+                <element signature="e#1#40#0" expanded="true" />
+                <marker date="1539348333324" expanded="true" signature="748:2646" ph="..." />
+                <marker date="1539348333324" expanded="true" signature="2393:2594" ph="..." />
               </folding>
             </state>
           </provider>
@@ -271,17 +278,17 @@
         <option value="$PROJECT_DIR$/awardsapp/templates/navbar.html" />
         <option value="$PROJECT_DIR$/awardsapp/templates/project_detail.html" />
         <option value="$PROJECT_DIR$/awardsapp/urls.py" />
-        <option value="$PROJECT_DIR$/awardsapp/views.py" />
         <option value="$PROJECT_DIR$/awardsapp/templates/registration/user_image_list.html" />
         <option value="$PROJECT_DIR$/awardsapp/templates/registration/login.html" />
         <option value="$PROJECT_DIR$/awardsapp/templates/index.html" />
+        <option value="$PROJECT_DIR$/awardsapp/views.py" />
         <option value="$PROJECT_DIR$/awardsapp/templates/image.html" />
         <option value="$PROJECT_DIR$/awardsapp/models.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="107" />
+    <option name="x" value="113" />
     <option name="y" value="23" />
     <option name="width" value="1077" />
     <option name="height" value="733" />
@@ -385,15 +392,14 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="107" y="23" width="1077" height="733" extended-state="0" />
-    <editor active="true" />
+    <frame x="113" y="23" width="1077" height="733" extended-state="0" />
     <layout>
       <window_info id="Favorites" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20075758" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22727273" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Version Control" />
       <window_info anchor="bottom" id="Python Console" weight="0.32885906" />
-      <window_info active="true" anchor="bottom" id="Terminal" sideWeight="0.49952334" visible="true" weight="0.17316693" />
+      <window_info active="true" anchor="bottom" id="Terminal" sideWeight="0.49952334" visible="true" weight="0.54914194" />
       <window_info anchor="bottom" id="Event Log" sideWeight="0.50047666" side_tool="true" weight="0.47249192" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
@@ -751,8 +757,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/awardsapp/templates/image.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="53" selection-start-line="53" selection-end-line="53" />
+        <state relative-caret-position="257">
+          <caret line="56" column="22" selection-start-line="56" selection-start-column="22" selection-end-line="56" selection-end-column="22" />
           <folding>
             <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#h1#0;n#div#0;n#div#0;n#!!top" expanded="true" />
@@ -769,8 +775,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/awardsapp/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-397">
-          <caret line="175" column="71" selection-start-line="175" selection-start-column="71" selection-end-line="175" selection-end-column="71" />
+        <state relative-caret-position="-621">
+          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
           <folding>
             <element signature="e#24#63#0" expanded="true" />
           </folding>
@@ -779,10 +785,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/awardsapp/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="49" column="25" lean-forward="true" selection-start-line="49" selection-start-column="25" selection-end-line="49" selection-end-column="25" />
+        <state relative-caret-position="186">
+          <caret line="210" column="27" lean-forward="true" selection-start-line="210" selection-start-column="27" selection-end-line="210" selection-end-column="27" />
           <folding>
-            <marker date="1539338702734" expanded="true" signature="705:2212" ph="..." />
+            <element signature="e#1#40#0" expanded="true" />
+            <marker date="1539348333324" expanded="true" signature="748:2646" ph="..." />
+            <marker date="1539348333324" expanded="true" signature="2393:2594" ph="..." />
           </folding>
         </state>
       </provider>
