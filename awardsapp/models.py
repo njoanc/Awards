@@ -170,13 +170,6 @@ class Image(models.Model):
         pictures = cls.objects.filter(id=id).update(id=id)
         return pictures
 
-class Followers(models.Model):
-    '''
-    followers
-    '''
-    user = models.CharField(max_length=20, default="")
-    follower = models.CharField(max_length=20, default="")
-
 
 class Review(models.Model):
     RATING_CHOICES = (
