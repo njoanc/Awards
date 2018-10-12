@@ -1,6 +1,8 @@
 {% extends 'base.html' %}
 
 {% load bootstrap4 %}{% block content %}
+
+
 <h2>{{ project.title }}</h2>
 <h5>{{ project.review_set.count }} reviews ({{ project.design_rating | floatformat }} average rating of design)</h5>
 <h5>{{ project.review_set.count }} reviews ({{ project.content_rating | floatformat }} average rating of content)</h5>
@@ -18,30 +20,12 @@
         <h6>Design Rated {{ review.design_rating}} of 10 by {{ review.user }}</h6>
         <h6>Content Rated {{ review.content_rating }} of 10 by {{ review.user }}</h6>
         <h6>Usability Rated {{ review.usability_rating }} of 10 by {{ review.user }}</h6>
-        <h5><a href="{% url 'review_detail' review.id %}">
-        Read more
-        </a></h5>
+
     </div>
     {% endfor %}
 
 
 </div>
 
-
-{% else %}
-<p>No reviews for this project yet</p>
-{% endif %}
-
-<h3>Add your review</h3>
-{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
-
-<form action="{% url 'reviews:add_review' project.id %}" method="post" class="form">
-    {% csrf_token %}
-    {% bootstrap_form form layout='inline' %}
-    <button type="submit" class="btn btn-primary">
-     Add
-    </button>
-
-</form>
 
 {% endblock %}

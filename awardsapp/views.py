@@ -1,9 +1,4 @@
-# -*- coding: utf-8 -*-
 from __future__ import unicode_literals
-
-from django.shortcuts import render
-
-# Create your views here.
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Image,Location,tags, Profile, Review, NewsLetterRecipients, Like, Project
 from django.http  import HttpResponse, Http404, HttpResponseRedirect, JsonResponse
@@ -19,6 +14,8 @@ from rest_framework.views import APIView
 from .serializers import ProjectSerializer, ProfileSerializer
 from rest_framework import status
 from .permissions import IsAdminOrReadOnly
+
+
 
 @login_required(login_url='/accounts/login/')
 def home_projects (request):
@@ -46,7 +43,7 @@ def home_projects (request):
 
     return render(request, 'index.html', {'projects':projects, 'letterForm':form})
 
-def project (request, id):
+def project(request, id):
 
     try:
         project = Project.objects.get(pk = id)
@@ -56,6 +53,7 @@ def project (request, id):
 
     current_user = request.user
     comments = Review.get_comment(Review, id)
+    latest_review_list=Review.objects.all()
 
     if request.method == 'POST':
         form = ReviewForm(request.POST)
@@ -81,31 +79,7 @@ def project (request, id):
     return render(request, 'image.html', {"project": project,
                                           'form':form,
                                           'comments':comments,
-                                          })
-
-# @login_required(login_url='/accounts/login/')
-# def add_review(request, project_id):
-    # project = get_object_or_404(Project, pk=project_id)
-    # form = ReviewForm(request.POST)
-    # if form.is_valid():
-    #     design_rating = form.cleaned_data['design_rating']
-    #     content_rating = form.cleaned_data['content_rating']
-    #     usability_rating = form.cleaned_data['usability_rating']
-    #     comment = form.cleaned_data['comment']
-    #     user = form.cleaned_data['user']
-    #     user = request.user.username
-    #     review = Review()
-    #     review.project = project
-    #     review.user = user
-    #     review.design_rating = design_rating
-    #     review.content_rating = content_rating
-    #     review.usability_rating = usability_rating
-    #     review.comment = comment
-    #     review.save() # Always return an HttpResponseRedirect after successfully dealing
-        # with POST data. This prevents data from being posted twice if a
-        # user hits the Back button.
-        # return HttpResponseRedirect(reverse('project_detail', args=(project.id,)))
-    # return render(request, 'project_detail.html',
+                                          'latest_review_list':latest_review_list})
 
 @login_required(login_url='/accounts/login/')
 def new_image(request):
@@ -172,20 +146,6 @@ def individual_profile_page(request, username=None):
 
     return render (request, 'registration/user_image_list.html', {'images':images, 'username': username})
 
-# def search_users(request):
-#
-#     # search for a user by their username
-#     if 'user' in request.GET and request.GET["user"]:
-#         search_term = request.GET.get("user")
-#         searched_users = Profile.search_users(search_term)
-#         message = f"{search_term}"
-#
-#         return render(request, 'search.html', {"message": message, "profiles": searched_users})
-#
-#     else:
-#         message = "You haven't searched for any person"
-#         return render(request, 'search.html', {"message": message})
-
 def search_projects(request):
 
     # search for a user by their username
@@ -215,7 +175,26 @@ def search_image(request):
             message = "You haven't searched for any image"
             return render(request, 'search.html', {"message": message})
 
-
+# def search_users(request):
+#
+#     # search for a user by their username
+#     if 'user' in request.GET and request.GET["user"]:
+#         search_term = request.GET.get("user")
+#         searched_users = Profile.search_users(search_term)
+#         message = f"{search_term}"
+#
+#         return render(request, 'search.html', {"message": message, "profiles": searched_users})
+#
+#     else:
+#         message = "You haven't searched for any person"
+#         return render(request, 'search.html', {"message": message})
+#
+# def user_review_list(request, username=None):
+#     if not username:
+#         username = request.user.username
+#     latest_review_list = Review.objects.filter(user_id=username).order_by('-comment')
+#     context = {'latest_review_list':latest_review_list, 'username':username}
+#     return render(request, 'user_review_list.html', context)
 
 @login_required(login_url='/accounts/login/')
 def individual_profile_page(request, username):
@@ -254,22 +233,7 @@ def project_list(request):
     context = {'project_list':project_list}
     return render(request, 'project_list.html', context)
 
-
-def project_detail(request, project_id):
-    project = get_object_or_404(Project, pk=project_id)
-    return render(request, 'project_detail.html', {'project': project})
-
-#
-# def user_review_list(request, username=None):
-#     if not username:
-#         username = request.user.username
-#     latest_review_list = Review.objects.filter(user_id=username).order_by('-comment')
-#     context = {'latest_review_list':latest_review_list, 'username':username}
-#     return render(request, 'user_review_list.html', context)
-
-
-
-# generic views
+# AJAX functionality
 
 def newsletter(request):
     name = request.POST.get('your_name')
@@ -281,11 +245,7 @@ def newsletter(request):
     data= {'success': 'You have been successfully added to the newsletter mailing list'}
     return JsonResponse(data)
 
-# POSTMAN functions
-# PUT CODE WORKS
-# GET CODE WORKS
-# DELETE WORKS
-# POST CODE ALSO WORKS... YAY!
+# Project Serializer
 
 class ProjectList(APIView):
     def get(self, request, format = None):
@@ -335,8 +295,6 @@ class ProjectDescription(APIView):
         project.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
 
-
-
 # Profile Serializer
 
 class ProfileList(APIView):
@@ -356,12 +314,6 @@ class ProfileList(APIView):
 
         return Response(serializers.errors, status = status.HTTP_400_BAD_REQUEST)
 
-
-# POSTMAN functions
-# PUT CODE WORKS
-# GET CODE WORKS
-# DELETE WORKS
-# POST CODE ALSO WORKS... hallelujah!
 
 class ProfileDescription(APIView):
     permission_classes = (IsAdminOrReadOnly,)
@@ -392,6 +344,3 @@ class ProfileDescription(APIView):
         profile = self.get_profile(pk)
         profile.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
-
-
-

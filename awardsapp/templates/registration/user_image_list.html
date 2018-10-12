@@ -13,31 +13,18 @@
 
 <div class="container">
   <div class="card-columns">
-    {% for image in images %}
+    {% for project in projects %}
 
     <div class="card border-secondary"><a href="{% url 'image' image.id %}">
-        <img src="{{image.image.url}}" class="img-fluid" id="eachimage"
+        <img src="{{project.project_image.url}}" class="img-fluid" id="eachimage"
           size="100px200"></a>
- <p style="font-family: 'Oswald', sans-serif;"> Caption : {{ image.description}}</p>
-      <p style="font-family: 'Oswald', sans-serif;">Posted by : {{ image.user}}</p>
+ <p style="font-family: 'Oswald', sans-serif;"> Caption : {{ project.description}}</p>
+      <p style="font-family: 'Oswald', sans-serif;">Posted by : {{ project.user}}</p>
     </div>
     {% endfor %}
   </div>
 </div>
 
-<div class="container">
-  <div class="card-columns">
-    {% for image in images %}
-
-    <div class="card border-secondary"><a href="{% url 'image' image.id %}">
-        <img src="{{image.image.url}}" class="img-fluid" id="eachimage"
-          size="100px200"></a>
- <p style="font-family: 'Oswald', sans-serif;"> Caption : {{ image.description}}</p>
-      <p style="font-family: 'Oswald', sans-serif;">Posted by : {{ image.user}}</p>
-    </div>
-    {% endfor %}
-  </div>
-</div>
 <div class="container">
     <div class="col-md-12">
       <div class="footer text-center">

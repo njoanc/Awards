@@ -42,17 +42,15 @@ class Project(models.Model):
     description = models.TextField()
     project_url=models.URLField(max_length=250)
 
-
-
-    def average_design_rating_of_project(self):
+    def average_design(self):
         design_ratings = list(map(lambda x: x.design_rating, self.review_set.all()))
         return np.mean(design_ratings)
 
-    def average_usability_rating_of_project(self):
+    def average_usability(self):
         usability_ratings = list(map(lambda x: x.usability_rating, self.review_set.all()))
         return np.mean(usability_ratings)
 
-    def average_content_rating_of_project(self):
+    def average_content(self):
         content_ratings = list(map(lambda x: x.content_rating, self.review_set.all()))
         return np.mean(content_ratings)
 

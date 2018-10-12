@@ -11,26 +11,12 @@
   </div>
 </div>
 
-
 <div class="container">
 <div class="card mb-3" style="width:40rem;;">
   <img class="card-img-top" src="{{project.project_image.url}}" alt="Card image cap" class="img-fluid" size="100px200">
   <div class="card-body">
     <button class="btn btn-lg btn-danger">Like This Project</button>
 
-
-    <!--*****************-->
-    <!--TESTING LIKE BUTTON-->
-
-    <a href="#" onClick="document.getElementById('likebutton').submit()">Like This Post</a> {{project.likes}}
-
-<form id="likebutton" method="POST" action="/posts/{{project.id}}/preference/1/">
-{% csrf_token %}
-<input type="hidden">
-</form>
-
-
-    <!--********************-->
 
     <h5 class="card-title" style="font-family: 'Oswald', sans-serif;"><strong>Name Of Project:</strong>
       <br>
@@ -48,25 +34,31 @@
 
 
      <div class="card-body text-primary">
-         {% if latest_review_list %}
-
+<h4>
+        {{ review.project.title }}
+        </h4>
     {% for review in latest_review_list %}
     <div>
-        <h4><a href="{% url 'review_detail' review.id %}">
-        {{ review.project.title }}
-        </a></h4>
-        <h6> Design Rating is {{ review.design_rating }} of 5 by {{ review.user }}</h6>
-        <h6> Usability Rating is {{ review.usability_rating }} of 5 by {{ review.user }}</h6>
-        <h6> Content Rating is {{ review.content_rating }} of 5 by {{ review.user }}</h6>
-        <p>{{ review.comment }}</p>
+
+        <h6> Design Rating:  {{ review.design_rating }} of 10 by {{ review.user }}</h6>
+        <h6> Usability Rating : {{ review.usability_rating }} of 10 by {{ review.user }}</h6>
+        <h6> Content Rating : {{ review.content_rating }} of 10 by {{ review.user }}</h6>
+        <p style="color:black;">Comment: {{ review.comment }}</p>
     </div>
+
+
     {% endfor %}
+
+          <h1 style="color:black;">AVERAGE OF REVIEWS</h1>
+<h2>{{ project.title }}</h2>
+<h5>{{ project.review_set.count }} reviews ({{ project.design_rating | floatformat }} average rating of design)</h5>
+<h5>{{ project.review_set.count }} reviews ({{ project.content_rating | floatformat }} average rating of content)</h5>
+<h5>{{ project.review_set.count }} reviews ({{ project.usability_rating | floatformat }} average rating of usability)</h5>
+
+
+
 </div>
 
-
-{% else %}
-<p>No reviews are available.</p>
-{% endif %}
 
 
 
@@ -74,7 +66,6 @@
    </div>
 </div>
 </div>
-
 
 
 <div class="container mt-2 mx-auto p-5" style="background-color:#ffffff; border: 1px solid #e6e6e6;">
