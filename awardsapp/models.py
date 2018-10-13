@@ -86,19 +86,6 @@ class Project(models.Model):
     def __str__(self):
         return self.title
 
-    # ************** VICTOR PLAYING AROUND HERE********************************
-
-    # def average_des(self, id):
-    #     print('asdfasdf' + id)
-    #     pr = Review.objects.filter(pk=id)
-    #     print(pr)
-    #     url = [r.usability_rating for r in pr]
-    #     print(url)
-    #     print(np.mean(url))
-    #     return  np.mean(url)
-
-    # **********************************************
-
 
 
 class Profile(models.Model):
