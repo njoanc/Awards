@@ -93,7 +93,7 @@ class Profile(models.Model):
         db_table = 'profile'
 
     bio = models.TextField(max_length=200, null=True, blank=True, default="bio")
-    profile_pic = models.ImageField(upload_to='picture/', null=True, blank=True)
+    profile_pic = models.ImageField(upload_to='picture/', null=True, blank=True, default= 0)
     user=models.OneToOneField(User, on_delete=models.CASCADE, null=True, related_name="profile")
     project=models.ForeignKey(Project, null=True)
     contact=models.IntegerField(default=0)

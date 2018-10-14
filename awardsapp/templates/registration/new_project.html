@@ -1,4 +1,7 @@
-{%extends "registration/base.html"%} {% load bootstrap4 %} {%load static%} {% load staticfiles %} {% block content %}
+{%extends "registration/base.html"%}
+{% load bootstrap4 %}
+{%load static%}
+{% block content %}
 
 
 <head>
@@ -8,7 +11,8 @@
   <title>New Project</title>
   {{form.media}}
 
-{% block styles %} {% bootstrap_css %}
+{% block styles %}
+    {% bootstrap_css %}
   <link rel="stylesheet" href="{% static 'css/styles.css' %}"> {% endblock %}
 
 </head>
@@ -19,7 +23,7 @@
      <div class="row">
 
 
-  <form  action="{%url 'new_project'%}" method="post" enctype="multipart/form-data">
+  <form  action="{%url 'new_project'%}" method="post" style="font-family: 'Dosis', sans-serif;" enctype="multipart/form-data">
     {%csrf_token%}
 
     {% bootstrap_form form%}
