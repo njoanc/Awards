@@ -26,5 +26,9 @@ li a {
 
 .itson {
   background-color: white;
-  height:1200px !important;
+  height:600px !important;
+}
+
+#jumbo{
+height:200px !important;
 }
