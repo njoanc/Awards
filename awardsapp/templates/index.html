@@ -14,9 +14,9 @@
 </div>
 
 
-<div class="jumbotron itson mt-0 mb-0">
+<div class="jumbotron itson mb-3 ">
 
-  <div class="card-deck">
+  <div class="card-columns">
     {% for project in projects %}
     <div class="card border-secondary"><a href="{% url 'project' project.id %}">
 
@@ -36,7 +36,7 @@
 
 </div>
 
-<div class="jumbotron text-center " style="background-color:white;font-family: 'Dosis', sans-serif;">
+<div class="jumbotron text-center mt-3" style="background-color:white;font-family: 'Dosis', sans-serif;">
 
   <form action="{%url 'homePage'%}" method="post">
     {%csrf_token%} {% bootstrap_form letterForm %}
