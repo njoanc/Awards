@@ -5,7 +5,10 @@
 
 <div class="jumbotron text-center" style="background-color:white;">
     <h1 style="font-family: 'Dosis', sans-serif;"> Your Profile Page </h1>
-     <img src="{{user.profile.profile_pic.url}}" class="img-thumbnail" id="eachimage1" style="height:200px;width:150px;"></a>
+
+    {% if profile.profile_pic %}
+     <img src="{{user.profile.profile_pic.url | default_if_none:'#'}}" class="img-thumbnail" id="eachimage1" style="height:200px;width:150px;"></a>
+   {% endif %}
     <p style="font-family: 'Dosis', sans-serif;">{{user.profile.bio}}</p>
     <p style="font-family: 'Dosis', sans-serif;">{{user.profile.contact}}</p>
     <button class="btn btn-lg btn-success" style="font-family: 'Dosis', sans-serif;"><a href=" {%url 'edit_profile'%}">Edit Profile</a></button>
@@ -16,7 +19,7 @@
     {% for project in projects %}
 
     <div class="card border-secondary"><a href="{% url 'image' image.id %}">
-        <img src="{{project.project_image.url}}" class="img-fluid" id="eachimage"
+        <img src="{{project.project_image.url }}" class="img-fluid" id="eachimage"
           size="100px200"></a>
  <p style="font-family: 'Dosis', sans-serif;"> Caption : {{ project.description}}</p>
       <p style="font-family: 'Dosis', sans-serif;">Posted by : {{ project.user}}</p>
