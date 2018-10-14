@@ -5,7 +5,7 @@
 
   <div class="jumbotron text-center" style="background-color:white;">
 
-    <h1 class="h1" style="font-family: 'Grand Hotel', cursive; color:blue;font-size:70px;">Instagram</h1>
+    <h1 class="h1" style="font-family: 'Dosis', cursive; color:blue;font-size:70px;">Awards</h1>
 
 
   </div>
@@ -15,21 +15,20 @@
 <div class="card mb-3" style="width:40rem;;">
   <img class="card-img-top" src="{{project.project_image.url}}" alt="Card image cap" class="img-fluid" size="100px200">
   <div class="card-body">
-    <button class="btn btn-lg btn-danger">Like This Project</button>
 
 
-    <h5 class="card-title" style="font-family: 'Oswald', sans-serif;"><strong>Name Of Project:</strong>
+
+    <h5 class="card-title" style="font-family: 'Dosis', sans-serif;"><strong>Project Name:</strong>
       <br>
       {{project.title}}</h5>
-    <p class="card-text" style="font-family: 'Oswald', sans-serif;"><strong>Caption:</strong>
+    <p class="card-text" style="font-family: 'Dosis', sans-serif;"><strong>Description Of Project:</strong>
       <br>
       {{project.description}}</p>
-    <p class="card-text" style="font-family: 'Oswald', sans-serif;"><small class="text-muted">Posted by {{project.user}}</small></p>
   </div>
 
   <div class="card border-secondary">
      <div class="card-header">
-     <h5 style="font-family: 'Oswald', sans-serif;">Project Comments</h5>
+     <h5 style="font-family: 'Dosis', sans-serif;"> Comments</h5>
        </div>
 
 
@@ -40,23 +39,26 @@
     {% for review in latest_review_list %}
     <div>
 
-        <h6> Design Rating:  {{ review.design_rating }} of 10 by {{ review.user }}</h6>
-        <h6> Usability Rating : {{ review.usability_rating }} of 10 by {{ review.user }}</h6>
-        <h6> Content Rating : {{ review.content_rating }} of 10 by {{ review.user }}</h6>
-        <p style="color:black;">Comment: {{ review.comment }}</p>
+        <p style="color:black; font-family: 'Dosis',sans-serif;">Comment by {{ review.user }}: {{ review.comment }}</p>
     </div>
 
 
     {% endfor %}
 
-          <h1 style="color:black;">AVERAGE OF REVIEWS</h1>
-<h2>{{ project.title }}</h2>
-
-<h5>{{ project.reviews.count }} reviews ({{ project.average_design | floatformat }} average rating of design)</h5>
-<h5>{{ project.reviews.count }} reviews ({{ project.average_content | floatformat }} average rating of content)</h5>
-<h5>{{ project.reviews.count }} reviews ({{ project.average_usability | floatformat }} average rating of usability)</h5>
+          <h1 style="color:black;font-family: 'Dosis', sans-serif;">AVERAGE OF REVIEWS</h1>
 
 
+<h5 style="font-family: 'Dosis',sans-serif;">{{ project.reviews.count }} reviews ({{ project.average_design | floatformat }} average rating of design)</h5>
+<h5 style="font-family: 'Dosis',sans-serif;">{{ project.reviews.count }} reviews ({{ project.average_content | floatformat }} average rating of content)</h5>
+<h5 style="font-family: 'Dosis',sans-serif;">{{ project.reviews.count }} reviews ({{ project.average_usability | floatformat }} average rating of usability)</h5>
+
+<h3 style="font-family: 'Dosis', sans-serif;">Add your comment</h3>
+  <hr>
+  <form action=""  method="post" style="font-family: 'Dosis',sans-serif;">
+    {%csrf_token%} {% bootstrap_form form %}
+      <input type="submit" class="btn btn-primary" value="Post">
+  </form>
+  <hr>
 
 </div>
 
@@ -69,15 +71,6 @@
 </div>
 
 
-<div class="container mt-2 mx-auto p-5" style="background-color:#ffffff; border: 1px solid #e6e6e6;">
-  <h3 style="font-family: 'Oswald', sans-serif;">Add your comment</h3>
-  <hr>
-  <form action=""  method="post">
-    {%csrf_token%} {% bootstrap_form form %}
-      <input type="submit" class="btn btn-primary" value="Post">
-  </form>
-  <hr>
-</div>
 <div class="container">
     <div class="col-md-12">
       <div class="footer text-center">

@@ -15,17 +15,17 @@
     <div class="col-sm-6 col-md-6">
       {% if user.is_authenticated %}
 
-      <li style="font-family: 'Oswald', sans-serif;">
+      <li style="font-family: 'Dosis', sans-serif;">
         <a href="{%url 'edit_profile'%}">Edit Profile</a>
       </li>
 
-      <li style="font-family: 'Oswald', sans-serif;">
+      <li style="font-family: 'Dosis', sans-serif;">
         <a href="{% url 'individual_profile_page' user.id %}">My Profile</a>
       </li>
-                   <li style="font-family: 'Oswald', sans-serif;">
+                   <li style="font-family: 'Dosis', sans-serif;">
                     <a href="{%url 'new_project'%}">Submit Your Site!</a>
                   </li>
-      <li style="font-family: 'Oswald', sans-serif;">
+      <li style="font-family: 'Dosis', sans-serif;">
         <a href="/accounts/password/change">Change Password</a>
       </li>
 
@@ -42,11 +42,11 @@
         <a class='btn btn-default' href="/accounts/register">Register</a>
       </li>
 
-
+{% endif %}
     </div>
 
     <!-- Adding a search form  -->
-    <div class="col-sm-4 col-md-4 navbar-center">
+    <div class="col-sm-4 col-md-4 navbar-right">
 
       <form class="navbar-form" role="search" action="{% url 'search_projects' %}">
 
@@ -59,7 +59,7 @@
 
 
       </form>
-{% endif %}
+
     </div>
     <!-- search form end -->
 
