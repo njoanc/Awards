@@ -9,7 +9,6 @@
 
       <a class="navbar-brand" id="victor" href="{% url 'homePage' %}">AWARDS
       </a>
-      <p class="text-center" style="font-family: 'Dosis', sans-serif;">The awards of design, creativity and innovation on the internet</p>
     </div>
     <div>
         </div>
@@ -30,40 +29,37 @@
         <a href="/accounts/password/change">Change Password</a>
       </li>
 
-      <li style="font-family: 'Oswald', sans-serif;">
+      <li style="font-family: 'Dosis', sans-serif;">
         <a href="/logout">Logout</a>
       </li>
 
       {% else %}
-      <li style="font-family: 'Oswald', sans-serif;">
+      <li style="font-family: 'Dosis', sans-serif;">
         <a class='btn btn-default' href="/accounts/login">Login</a>
       </li>
 
-      <li style="font-family: 'Oswald', sans-serif;">
+      <li style="font-family: 'Dosis', sans-serif;">
         <a class='btn btn-default' href="/accounts/register">Register</a>
       </li>
 
-      {% endif %}
+
     </div>
 
     <!-- Adding a search form  -->
-    <div class="col-sm-4 col-md-4 navbar-right">
+    <div class="col-sm-4 col-md-4 navbar-center">
 
       <form class="navbar-form" role="search" action="{% url 'search_projects' %}">
 
         <div class="input-group">
-          <input type="text" class="form-control mr-sm-4" placeholder="Search Project" name="project">
+          <input type="text" style="font-family: 'Dosis', sans-serif;" class="form-control mr-sm-4" placeholder="Search Project" name="project">
           <div class="input-group-btn">
-            <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Find</button>
+            <button class="btn btn-outline-primary my-2 my-sm-0" style="font-family: 'Dosis', sans-serif;" type="submit">Find</button>
           </div>
         </div>
 
 
       </form>
-      <img src="https://png.icons8.com/metro/50/000000/facebook.png">
-     <img src="https://png.icons8.com/ios/50/000000/instagram-new-filled.png">
-      <img src="https://png.icons8.com/windows/50/000000/twitter.png">
-
+{% endif %}
     </div>
     <!-- search form end -->
 

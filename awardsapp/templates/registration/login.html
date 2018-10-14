@@ -6,7 +6,7 @@
       <p> Password or Username is incorrect </p>
       {% endif %}
 
-      <img class="thumbnail" src="{% static 'photos/freelancer-desk.jpg' %}" style="height:400px;width:450px;">
+      <img class="thumbnail" src="{% static 'photos/gosh-her-voice-is-too-monotone.jpg' %}" style="height:500px;width:450px;">
 
 
     </div>
@@ -19,10 +19,10 @@
 
         <div class="card-header text-center">
           <h1 class="h1" style="font-family: 'Dosis', sans-serif; color:blue;font-size:65px;">AWARDS</h1>
-          <h3 class="text-center" style="color:grey;font-size:15px;">Login to see photos and videos from your friends.</h3>
+          <h3 class="text-center" style="color:grey;font-size:15px;font-family: 'Dosis', sans-serif;">Login to see photos and videos from your friends.</h3>
         </div>
         <div class="card-body text-primary">
-          <form action="/accounts/login/" method="post">
+          <form action="/accounts/login/" method="post" style="font-family: 'Dosis', sans-serif; " >
             {% csrf_token %} {% bootstrap_form form%}
 
             <div class="form-group">
@@ -47,19 +47,19 @@
 
       <div class="card mt-5" style="width: 28rem;">
         <div class="card-body text-center">
-          <h5 class="card-title">Don't have an account?</h5>
-          <h2 style="color:grey;font-size:10px;">By signing up, you agree to our Terms, Data Policy and Cookies Policy.</h2>
-          <a href="/accounts/register" class="btn btn-primary">Sign Up</a>
+          <h5 class="card-title" style="font-family: 'Dosis', sans-serif;">Don't have an account?</h5>
+          <h2 style="color:grey;font-size:10px;font-family: 'Dosis', sans-serif;">By signing up, you agree to our Terms, Data Policy and Cookies Policy.</h2>
+          <a href="/accounts/register" class="btn btn-primary" style="font-family: 'Dosis', sans-serif;">Sign Up</a>
         </div>
       </div>
     </div>
     <div class="col-md-6">
       <div class="card mt-5" style="width: 28rem;">
         <div class="card-body text-center">
-          <h5 class="card-title">Get the app.</h5>
-          <a href="https://itunes.apple.com/ke/app/instagram/id389801252?mt=8"><img src="{% static 'photos/freelancer-desk.jpg' %}"
-              style="height:70px;width:200px;"></a>
-          <a href="https://play.google.com/store?hl=en"><img src="{% static 'photos/freelancer-desk.jpg' %}" style="height:70px;width:200px;"></a>
+          <h5 class="card-title" style="font-family: 'Dosis', sans-serif;" >Get the app.</h5>
+          <a href="https://itunes.apple.com/ke/app/instagram/id389801252?mt=8"><img src="{% static 'photos/disruptive-innovation.jpg' %}"
+              style="height:90px;width:200px;"></a>
+          <a href="https://play.google.com/store?hl=en"><img src="{% static 'photos/food-blogging.jpg' %}" style="height:90px;width:200px;"></a>
         </div>
 
       </div>
