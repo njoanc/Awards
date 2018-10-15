@@ -26,9 +26,13 @@ li a {
 
 .itson {
   background-color: white;
-  height:2000px !important;
+  height:auto;
 }
 
 #jumbo{
 height:200px !important;
+}
+
+.w-33 {
+    min-width: 33%;
 }
