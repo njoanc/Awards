@@ -107,7 +107,7 @@ fork the project and make a pull request.
 
 ## Authors
 
-MELISSA MALALA
+Jeanne d'Arc NYIRAMWIZA
 
 ## License
 
